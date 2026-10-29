@@ -1,0 +1,12 @@
+package block1;
+
+import java.util.Scanner;
+
+// Задача 1.3 ★ Калькулятор — условие в tasks/block-1-data.md
+public class Task03 {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+    }
+}
