@@ -43,4 +43,4 @@ char c = scanner.next().charAt(0);         // символ
 
 ## Сдача
 
-Блок = ветка `block-N` → pull request в `main`.
+Блок = ветка `block-N` → pull request в `main`. Пошагово — [SUBMIT.md](SUBMIT.md).
