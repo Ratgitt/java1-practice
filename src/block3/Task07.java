@@ -1,9 +1,12 @@
 package block3;
 
-// Задача 3.7 ★★ Найди ошибки в логике — условие в tasks/block-3-functions.md
+import java.util.Scanner;
+
+// Задача 3.7 ★★★ Подъезд и этаж — условие в tasks/block-3-functions.md
 public class Task07 {
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
 
     }
 }

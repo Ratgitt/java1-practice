@@ -1,38 +1,34 @@
 package block6;
 
-// Задача 6.5 ★★★ Ударный режим — условие в tasks/block-6-debug.md
+// Задача 6.5 ★★★★ Симметричный массив — условие в tasks/block-6-debug.md
 public class Task05 {
 
     public static void main(String[] args) {
-        int[][] logs = {
-                {30, 15, 0, 20, 25, 40, 0, 0, 10},
-                {0, 10, 0, 5, 15, 20, 30},
-                {20, 20, 20, 20, 20},
-                {0, 0, 0}
+        int[][] tests = {
+                {1, 2, 3, 2, 1},
+                {4, 7, 7, 4},
+                {5, 1, 2, 5},
+                {6, 9},
+                {8},
+                {1, 2, 3, 2, 9}
         };
-        for (int i = 0; i < logs.length; i++) {
-            System.out.println("Ученик " + (i + 1) + ": " + getLongestStreak(logs[i]));
+        for (int i = 0; i < tests.length; i++) {
+            System.out.println("Массив " + (i + 1) + ": " + isSymmetric(tests[i]));
         }
     }
 
-    // Самая длинная серия дней подряд, когда занимался (больше 0 минут)
-    public static int getLongestStreak(int[] minutes) {
-        int longest = 0;
-        int current = 0;
-        for (int i = 0; i < minutes.length; i++) {
-            if (minutes[i] > 0) {
-                current++;
-            } else {
-                longest = Math.max(longest, current);
-                current = 0;
+    // Симметричный — читается одинаково слева направо и справа налево
+    public static boolean isSymmetric(int[] values) {
+        for (int i = 1; i < values.length / 2; i++) {
+            if (values[i] != values[values.length - i]) {
+                return false;
             }
         }
-        return longest;
+        return true;
     }
 
-    // Ответ (номера строк — как в заготовке до исправления):
-    // 1. Для какого ученика, на какой строке и при каком i впервые расходится с ожидаемым (значения current и longest):
-    // 2. Как это увидел в дебаггере:
-    // 3. Почему у первого и четвёртого ученика ответ правильный:
-    // 4. Исправление (было → стало):
+    // Ответ (строки — по заготовке до исправления):
+    // Ошибка 1 (где) и исправление:
+    // Что стало после исправления только её:
+    // Ошибка 2 (где) и исправление:
 }

@@ -1,43 +1,36 @@
 package block6;
 
-import java.util.Scanner;
-
-// Задача 6.4 ★★ Парковка — условие в tasks/block-6-debug.md
+// Задача 6.4 ★★★ Ударный режим — условие в tasks/block-6-debug.md
 public class Task04 {
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int startHour = scanner.nextInt();
-        int endHour = scanner.nextInt();
-
-        int total = 0;
-        for (int hour = startHour; hour < endHour; hour++) {
-            total += getHourPrice(hour);
+        int[][] logs = {
+                {30, 15, 0, 20, 25, 40, 0, 0, 10},
+                {0, 10, 0, 5, 15, 20, 30},
+                {20, 20, 20, 20, 20},
+                {0, 0, 0}
+        };
+        for (int i = 0; i < logs.length; i++) {
+            System.out.println("Ученик " + (i + 1) + ": " + getLongestStreak(logs[i]));
         }
-        System.out.println("Стоимость: " + total);
     }
 
-    // Цена часа, который начинается в hour:00
-    public static int getHourPrice(int hour) {
-        if (hour < 8) {
-            return 20;
+    // Самая длинная серия дней подряд, когда занимался (больше 0 минут)
+    public static int getLongestStreak(int[] minutes) {
+        int longest = 0;
+        int current = 0;
+        for (int i = 0; i < minutes.length; i++) {
+            if (minutes[i] > 0) {
+                current++;
+            } else {
+                longest = Math.max(longest, current);
+                current = 0;
+            }
         }
-        if (hour < 19) {
-            return 100;
-        }
-        return 50;
+        return longest;
     }
 
-    // Ответ (номера строк — как в заготовке до исправления):
-    // 1. Что вернул Evaluate (запиши выражение и результат):
-    //    getHourPrice(0) =
-    //    getHourPrice(7) =
-    //    getHourPrice(8) =
-    //    getHourPrice(12) =
-    //    getHourPrice(19) =
-    //    getHourPrice(20) =
-    //    getHourPrice(23) =
-    //    getHourPrice(18) + getHourPrice(19) + getHourPrice(20) + getHourPrice(21) =
-    // 2. На каком часе функция ошибается и почему пример 1 работает правильно:
-    // 3. Исправление (было → стало):
+    // Ответ (строки — по заготовке до исправления):
+    // Где впервые расходится:
+    // Исправление:
 }
